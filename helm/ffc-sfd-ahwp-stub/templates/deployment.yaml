@@ -1,0 +1,8 @@
+{{- include "adp-helm-library.deployment" (list . "ffc-sfd-ahwp-stub.deployment") -}}
+{{- define "ffc-sfd-ahwp-stub.deployment" -}}
+spec:
+  template:
+    spec:
+      containers:
+      - {{ include "adp-helm-library.container" (list . "ffc-sfd-ahwp-stub.container") }}
+{{- end -}}

@@ -1,0 +1,3 @@
+services:
+  ffc-sfd-ahwp-stub:
+    command: npm run start:debug

@@ -1,0 +1,10 @@
+services:
+  ffc-sfd-ahwp-stub:
+    build:
+      context: .
+      target: production
+    image: ffc-sfd-ahwp-stub
+    container_name: ffc-sfd-ahwp-stub
+    environment:
+      APPINSIGHTS_CLOUDROLE: ffc-sfd-ahwp-stub-local
+      APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}

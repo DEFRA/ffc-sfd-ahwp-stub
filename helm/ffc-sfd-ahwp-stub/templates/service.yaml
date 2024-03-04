@@ -1,0 +1,4 @@
+{{- include "adp-helm-library.cluster-ip-service" (list . "ffc-sfd-ahwp-stub.cluster-ip-service") -}}
+{{- define "ffc-sfd-ahwp-stub.cluster-ip-service" -}}
+{{- end -}}
+
