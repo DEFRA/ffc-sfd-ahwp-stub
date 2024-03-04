@@ -23,7 +23,7 @@ module.exports = {
     }
   },
   handler: async (request, h) => {
-    const redirect = request.yar.get('redirect') ?? '/'
+    const redirect = request.yar.get('redirect') ?? '/home'
     const response = await getAccessToken(request.payload.code)
     return h.redirect(redirect)
       .state(AUTH_COOKIE_NAME, response.access_token, authConfig.cookieOptions)
