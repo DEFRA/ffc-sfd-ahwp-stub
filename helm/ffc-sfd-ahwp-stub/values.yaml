@@ -15,13 +15,6 @@ deployment: {}
 container:
   memCpuTier: L
   port: 3010
-  defraIdEnabled: true
-  defraIdWellKnownUrl: not-a-real-url
-  defraIdClientId: not-a-real-clientID
-  defraIdClientSecret: not-a-real-clientSecret
-  defraIdServiceId: not-a-real-serviceID
-  defraIdPolicy: not-a-real-policy
-  defraIdRedirectUrl: sign-in-oidc
 
 # These may be changed. See here: https://github.com/DEFRA/adp-helm-library?tab=readme-ov-file#container-template
 livenessProbe:
@@ -47,10 +40,3 @@ ingress:
   class: nginx
   endpoint: ffc-sfd-ahwp-stub
   server: ffc-sfd-ahwp-stub.{ENVIRONMENT}.adp.defra.gov.uk
-
-containerConfigMap:
-  name: ffc-sfd-ahwp-stub-config-map
-
-secret:
-  name: ffc-sfd-ahwp-stub-container-secret
-  type: Opaque
