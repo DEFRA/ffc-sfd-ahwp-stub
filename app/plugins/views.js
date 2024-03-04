@@ -1,6 +1,7 @@
 const path = require('path')
 const nunjucks = require('nunjucks')
-const pkg = require('../../package.json')
+const { serverConfig } = require('../config')
+const { version } = require('../../package.json')
 
 module.exports = {
   plugin: require('@hapi/vision'),
@@ -16,24 +17,25 @@ module.exports = {
         },
         prepare: (options, next) => {
           options.compileOptions.environment = nunjucks.configure([
-            path.join(options.relativeTo || process.cwd(), options.path),
-            'node_modules/govuk-frontend/'
+            path.join(options.relativeTo || process.cwd(), ...options.path),
+            'app/views',
+            'node_modules/govuk-frontend/dist'
           ], {
-            autoescape: true
+            autoescape: true,
+            watch: serverConfig.isDev
           })
 
           return next()
         }
       }
     },
-    path: '../views',
+    path: ['../views'],
     relativeTo: __dirname,
+    isCached: !serverConfig.isDev,
     context: {
-      appVersion: pkg.version,
-      assetPath: '/static',
-      govukAssetPath: '/assets',
-      serviceName: 'ffc-sfd-ahwp-stub',
-      pageTitle: 'ffc-sfd-ahwp-stub - GOV.UK'
+      appVersion: version,
+      serviceName: serverConfig.serviceName,
+      pageTitle: `${serverConfig.serviceName} - GOV.UK`
     }
   }
 }

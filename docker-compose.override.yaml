@@ -8,8 +8,8 @@ services:
     image: ffc-sfd-ahwp-stub-development
     container_name: ffc-sfd-ahwp-stub-development
     ports:
-      - "3000:3000"
-      - "9229:9229"
+      - "3010:3010"
+      - "9100:9229"
     volumes:
       - ./app:/home/node/app
       - ./package.json:/home/node/package.json
