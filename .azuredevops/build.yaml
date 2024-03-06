@@ -54,6 +54,6 @@ extends:
         - ffc-sfd-ahwp-stub-<environment>
       variables:
         - ffc-sfd-ahwp-stub-APPINSIGHTS-CONNECTIONSTRING
-        - ffc-sfd-ahwp-stub-DEFRA_ID_CLIENT_ID
-        - ffc-sfd-ahwp-stub-DEFRA_ID_CLIENT_SECRET
-        - ffc-sfd-ahwp-stub-DEFRA_ID_SERVICE_ID
+        - ffc-sfd-ahwp-stub-DEFRA-ID-CLIENT-ID
+        - ffc-sfd-ahwp-stub-DEFRA-ID-CLIENT-SECRET
+        - ffc-sfd-ahwp-stub-DEFRA-ID-SERVICE-ID
