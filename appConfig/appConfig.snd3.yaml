@@ -18,3 +18,6 @@
   value: "https://ffc-sfd-ahwp-stub.snd3.adp.defra.gov.uk/sign-in-oidc"
 - key: DEFRA_ID_POST_LOGOUT_REDIRECT_URL
   value: "https://ffc-sfd-ahwp-stub.snd3.adp.defra.gov.uk/sign-out-oidc"
+- key: COOKIE_PASSWORD
+  value: "{{servicename}}-COOKIE-PASSWORD"
+  type: "keyvault"
