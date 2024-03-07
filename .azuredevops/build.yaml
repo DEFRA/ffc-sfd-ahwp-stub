@@ -57,3 +57,4 @@ extends:
         - ffc-sfd-ahwp-stub-DEFRA-ID-CLIENT-ID
         - ffc-sfd-ahwp-stub-DEFRA-ID-CLIENT-SECRET
         - ffc-sfd-ahwp-stub-DEFRA-ID-SERVICE-ID
+        - ffc-sfd-ahwp-stub-COOKIE-PASSWORD
