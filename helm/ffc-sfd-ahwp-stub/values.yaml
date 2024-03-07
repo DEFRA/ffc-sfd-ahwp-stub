@@ -39,4 +39,4 @@ readinessProbe:
 ingress:
   class: nginx
   endpoint: ffc-sfd-ahwp-stub
-  server: snd3.adp.defra.gov.uk
+  server: ffc-sfd-ahwp.{ENVIRONMENT}.adp.defra.gov.uk
