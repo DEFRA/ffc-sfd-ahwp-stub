@@ -2,7 +2,7 @@ parameters:
 - name: deployFromFeature
   displayName: "Deploy from Feature Branch"
   type: boolean
-  default: false
+  default: true
 
 pr:
   branches:
@@ -41,16 +41,20 @@ extends:
     serviceName: "ffc-sfd-ahwp-stub"
     deployFromFeature: ${{ parameters.deployFromFeature }}
     appBuildConfig:
-      appFrameworkType: "nodejs"    
+      appFrameworkType: "nodejs"
       projectPath: "./package.json"
       manifestPath: "./package.json"
       imageRepoName: "ffc-sfd-ahwp-stub"
     appTestConfig:
       testFilePath: "./docker-compose.test.yaml"
     appDeployConfig:
-      filepath: "./appConfig"  
+      filepath: "./appConfig"
       filetype: "yaml"
       variableGroups:
         - ffc-sfd-ahwp-stub-<environment>
       variables:
         - ffc-sfd-ahwp-stub-APPINSIGHTS-CONNECTIONSTRING
+        - ffc-sfd-ahwp-stub-DEFRA-ID-CLIENT-ID
+        - ffc-sfd-ahwp-stub-DEFRA-ID-CLIENT-SECRET
+        - ffc-sfd-ahwp-stub-DEFRA-ID-SERVICE-ID
+        - ffc-sfd-ahwp-stub-COOKIE-PASSWORD

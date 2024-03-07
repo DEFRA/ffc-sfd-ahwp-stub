@@ -1,8 +1,12 @@
 const routes = [].concat(
-  require('../routes/home'),
   require('../routes/healthy'),
   require('../routes/healthz'),
-  require('../routes/static')
+  require('../routes/assets'),
+  require('../routes/'),
+  require('../routes/home'),
+  require('../routes/sign-in'),
+  require('../routes/sign-out'),
+  require('../routes/sign-in-oidc')
 )
 
 module.exports = {

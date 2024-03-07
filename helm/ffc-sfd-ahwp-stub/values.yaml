@@ -14,11 +14,12 @@ deployment: {}
 # These may be changed. See here: https://github.com/DEFRA/adp-helm-library?tab=readme-ov-file#container-template
 container:
   memCpuTier: L
+  port: 3010
 
 # These may be changed. See here: https://github.com/DEFRA/adp-helm-library?tab=readme-ov-file#container-template
 livenessProbe:
   path: /healthz
-  port: 3000
+  port: 3010
   initialDelaySeconds: 20
   periodSeconds: 10
   failureThreshold: 3
@@ -27,7 +28,7 @@ livenessProbe:
 # These may be changed. See here: https://github.com/DEFRA/adp-helm-library?tab=readme-ov-file#container-template
 readinessProbe:
   path: /healthy
-  port: 3000
+  port: 3010
   initialDelaySeconds: 30
   periodSeconds: 10
   failureThreshold: 3
@@ -38,4 +39,4 @@ readinessProbe:
 ingress:
   class: nginx
   endpoint: ffc-sfd-ahwp-stub
-  server: ffc-sfd-ahwp-stub.{ENVIRONMENT}.adp.defra.gov.uk
+  server: environment.adp.defra.gov.uk
