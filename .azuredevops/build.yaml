@@ -2,7 +2,7 @@ parameters:
 - name: deployFromFeature
   displayName: "Deploy from Feature Branch"
   type: boolean
-  default: true
+  default: false
 
 pr:
   branches:
