@@ -4,6 +4,7 @@ const routes = [].concat(
   require('../routes/assets'),
   require('../routes/'),
   require('../routes/home'),
+  require('../routes/tasks'),
   require('../routes/sign-in'),
   require('../routes/sign-out'),
   require('../routes/sign-in-oidc')

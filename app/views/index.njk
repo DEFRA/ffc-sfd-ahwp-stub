@@ -1,45 +1,36 @@
 {% extends '_layout.njk' %}
 
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
 {% block content %}
 
-<div class="govuk-width-container">
-  <main class="govuk-main-wrapper">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Apply for a Vet Visit</h1>
-        <p class="govuk-body">Sign in to make an application for a Vet Visit. If you do not already have an account, you can register for one.</p>
-        <p class="govuk-body">You can use the service to:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>apply for a Vet Visit</li>
-        </ul>
-        <a href="/home" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-5" data-module="govuk-button" >
-          Sign in
-          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-          </svg>
-        </a>
-      </div>
-    </div>
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-l">Apply for an annual health and welfare review of your livestock</h1>
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h2 class="govuk-heading-l govuk-!-padding-top-5">Before you start</h2>
-        <p class="govuk-body">There is a different scheme for: </p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>
-            <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Scotland</a>
-          </li>
-          <li>
-            <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Northern Ireland</a>
-          </li>
-          <li>
-            <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Wales</a>
-          </li>
-        </ul>
+          <p class="govuk-body">Use this service to apply for an annual health and welfare review with your vet.</p>
+          <p class="govuk-body">If you have multiple businesses that are registered to your rural payments account, you'll be asked which one you're applying for.</p>
+          <p class="govuk-body">Applying takes around 5 minutes.</p>
+
+          {{ govukButton({
+            classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+            href: redirectUrl,
+            isStartButton: true,
+            text: "Start now",
+            preventDoubleClick: true
+          }) }}
+
+          <h2 class="govuk-heading-m">Before you start</h2>
+          <p class="govuk-body">You’ll need your Rural Payments service customer reference number (CRN) and password to sign in.</p>
+          <p class="govuk-body">You must be eligible to apply for an annual health and welfare review. Read the guidance on <a href="/apply">getting a funded annual health and welfare review of your livestock</a> before you use this service.</p>
+
+          <h2 class="govuk-heading-m">Get help with your application</h2>
+          <p class="govuk-body">If you cannot apply online or have a question about your application contact the Rural Payments Agency by email or phone.</p>
+        </div>
       </div>
-    </div>
-        
-  </main>
-</div>
+    </main>
+  </div>
 
 {% endblock %}
