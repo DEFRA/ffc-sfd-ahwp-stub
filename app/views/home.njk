@@ -1,6 +1,5 @@
 {% extends '_layout.njk' %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block beforeContent %}
@@ -20,8 +19,14 @@
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
         <span class="govuk-caption-xl">{{ auth.credentials.name }}</span>
-        Welcome to Vet Visits
+        Start a new annual health and welfare review application
       </h1>
+
+      {{ govukButton({
+        text: "Start new application",
+        href: "/tasks"
+      }) }}
+
     </div>
   </div>
 {% endblock %}

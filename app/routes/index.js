@@ -1,4 +1,6 @@
 const { GET } = require('../constants/http-verbs')
+const { authConfig } = require('../config')
+const { getAuthorizationUrl } = require('../auth')
 
 module.exports = {
   method: GET,
@@ -6,7 +8,8 @@ module.exports = {
   options: {
     auth: false
   },
-  handler: (request, h) => {
-    return h.view('index')
+  handler: async (request, h) => {
+    const redirectUrl = authConfig.defraIdEnabled ? await getAuthorizationUrl() : '/sign-in'
+    return h.view('index', { redirectUrl })
   }
 }

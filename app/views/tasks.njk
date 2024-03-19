@@ -1,0 +1,92 @@
+{% extends '_layout.njk' %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/task-list/macro.njk" import govukTaskList %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+        text: "Home",
+        href: "/home",
+        attributes: {
+          id: "home"
+        }
+      }) 
+    }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">{{ auth.credentials.name }}</span>
+        Your Annual Health and Welfare Pathway application
+      </h1>
+
+      {{ govukTaskList({
+        idPrefix: "application",
+        items: [
+          {
+            title: {
+              text: "Provide contact details"
+            },
+            href: "#",
+            status: {
+              text: "Completed"
+            }
+          },
+          {
+            title: {
+              text: "Confirm business details"
+            },
+            href: "#",
+            status: {
+              tag: {
+                text: "Incomplete",
+                classes: "govuk-tag--blue"
+              }
+            }
+          },
+          {
+            title: {
+              text: "Register your animals"
+            },
+            hint: {
+              text: "Including any not part of your claim."
+            },
+            href: "#",
+            status: {
+              tag: {
+                text: "Incomplete",
+                classes: "govuk-tag--blue"
+              }
+            }
+          },
+          {
+            title: {
+              text: "Confirm your payment schedule"
+            },
+            href: "#",
+            status: {
+              tag: {
+                text: "Incomplete",
+                classes: "govuk-tag--blue"
+              }
+            }
+          },
+          {
+            title: {
+              text: "Submit your application"
+            },
+            href: "#",
+            status: {
+              tag: {
+                text: "Incomplete",
+                classes: "govuk-tag--blue"
+              }
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+{% endblock %}
