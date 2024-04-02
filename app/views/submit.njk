@@ -15,12 +15,31 @@
 {% endblock %}
 
 {% block content %}
+
   <div class="govuk-form-group">
     <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="event-name">
-        What is the name of the event?
+      <label class="govuk-label govuk-label--l" for="scheme-name">
+        For which scheme are you submitting an claim towards?
       </label>
     </h1>
-    <input class="govuk-input" id="event-name" name="eventName" type="text">
+    <input class="govuk-input" id="scheme" name="scheme-input" type="text">
+
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--l" for="reason">
+        Why are you submitting a claim to this scheme?
+      </label>
+    </h1>
+    <input class="govuk-input" id="reason" name="reason-input" type="text">
+
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--l" for="comments">
+        Do you have any comments you want to include with your application?
+      </label>
+    </h1>
+    <input class="govuk-input" id="comments" name="comments-input" type="text">
+
+    <button type="submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
+       Submit
+    </button>
   </div>
 {% endblock %}
