@@ -1,11 +1,11 @@
 const { POST } = require('../constants/http-verbs')
-const { USER } = require('ffc-auth/scopes')
+const { SFD_VIEW } = require('ffc-auth/scopes')
 
 module.exports = [
   {
     method: POST,
     path: '/submit',
-    options: { auth: { strategy: 'jwt', scope: [USER] } },
+    options: { auth: { strategy: 'jwt', scope: SFD_VIEW } },
     handler: (_request, h) => {
       return h.view('submit')
     }
