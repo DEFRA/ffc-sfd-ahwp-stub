@@ -15,31 +15,21 @@
 {% endblock %}
 
 {% block content %}
+    <div class="govuk-form-group">
+      <h3 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="crn-input">
+          Please enter your CRN (Customer Reference Number)
+        </label>
+      </h3>
 
-  <div class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="scheme-name">
-        For which scheme are you submitting an claim towards?
-      </label>
-    </h1>
-    <input class="govuk-input" id="scheme" name="scheme-input" type="text">
-
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="reason">
-        Why are you submitting a claim to this scheme?
-      </label>
-    </h1>
-    <input class="govuk-input" id="reason" name="reason-input" type="text">
-
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="comments">
-        Do you have any comments you want to include with your application?
-      </label>
-    </h1>
-    <input class="govuk-input" id="comments" name="comments-input" type="text">
-
-    <button type="submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
-       Submit
-    </button>
-  </div>
+      <form action="/submit" method="POST">  
+        <div class="govuk-grid-column-two-thirds">
+          <input class="govuk-input" id="scheme" name="crn" type="text">
+        </div>  
+        
+        <button type="submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
+          Submit
+        </button>
+      </form>
+    </div>
 {% endblock %}

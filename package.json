@@ -1,6 +1,6 @@
 {
   "name": "ffc-sfd-ahwp-stub",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "",
   "homepage": "github.com?owner=defra&repo=ffc-sfd-ahwp-stub&organization=defra",
   "main": "app/index.js",
