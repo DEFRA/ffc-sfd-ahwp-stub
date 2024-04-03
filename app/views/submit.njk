@@ -25,6 +25,7 @@
       <form action="/submit" method="POST">  
         <div class="govuk-grid-column-two-thirds">
           <input class="govuk-input" id="scheme" name="crn" type="text">
+          <input type="hidden" name="crumb" value="{{crumb}}">
         </div>  
         
         <button type="submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
