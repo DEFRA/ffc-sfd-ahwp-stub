@@ -1,3 +1,4 @@
+const { MessageSender } = require('ffc-messaging')
 const { GET, POST } = require('../constants/http-verbs')
 const { USER } = require('ffc-auth/scopes')
 
@@ -19,12 +20,29 @@ module.exports = [
       auth: false
     },
     handler: async (request, h) => {
+      console.log('Payload:', request.payload.crn)
       try {
+        const sender = new MessageSender({
+          useCredentialChain: false,
+          host: process.env.MESSAGE_HOST,
+          username: process.env.MESSAGE_USER,
+          password: process.env.MESSAGE_PASSWORD,
+          address: process.env.PROCESSOR_SUBSCRIPTION_ADDRESS,
+          type: 'subscription',
+          topic: process.env.PROCESSOR_TOPIC_ADDRESS
+        })
+        await sender.sendMessage({
+          body: request.payload,
+          type: 'submit',
+          source: 'ffc-sfd-ahwp-stub'
+        })
         const crn = request.payload.crn
-        console.log(`CRN (Customer Reference Number): ${crn}`)
+        console.log(`CRN successfully submitted to Service Bus: ${crn}`)
+        await sender.closeConnection()
         return h.redirect('/home')
       } catch (error) {
-        console.error(`Failed to submit CRN: ${error}`)
+        console.error(`Failed to submit CRN to Service Bus: ${error}`)
+        return h.redirect('/submit')
       }
     }
   }
