@@ -32,13 +32,12 @@ module.exports = [
           topic: process.env.PROCESSOR_TOPIC_ADDRESS
         })
         await sender.sendMessage({
-          body: request.payload,
+          body: { crn: request.payload.crn },
           type: 'submit',
           source: 'ffc-sfd-ahwp-stub'
         })
         const crn = request.payload.crn
         console.log(`CRN successfully submitted to Service Bus: ${crn}`)
-        await sender.closeConnection()
         return h.redirect('/home')
       } catch (error) {
         console.error(`Failed to submit CRN to Service Bus: ${error}`)
