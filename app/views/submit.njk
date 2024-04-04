@@ -16,15 +16,32 @@
 
 {% block content %}
     <div class="govuk-form-group">
-      <h1 class="govuk-label-wrapper">
-        <label class="govuk-label govuk-label--l" for="crn-input">
+      <h1 class="govuk-heading-l">
+        <label class="govuk-label govuk-label--l" for="message-input">
           Please submit a mesage
         </label>
       </h1>
 
       <form action="/submit" method="POST">  
         <div class="govuk-grid-column-two-thirds">
-          <input class="govuk-input" id="scheme" name="crn" type="text">
+          <h2 class="govuk-heading-m">Scheme</h2>
+          <input class="govuk-input" id="message-scheme" name="scheme" type="text">
+          
+          <h2 class="govuk-heading-m">Tags</h2>
+          <input class="govuk-input" id="message-tags" name="tags" type="text">
+
+          <h2 class="govuk-heading-m">CRN (Customer Reference Number)</h2>
+          <input class="govuk-input" id="message-crn" name="crn" type="text">
+
+          <h2 class="govuk-heading-m">Subject (Heading)</h2>
+          <input class="govuk-input" id="message-content-heading" name="heading" type="text">
+
+          <h2 class="govuk-heading-m">Message (Body)</h2>
+          <input class="govuk-input" id="message-content-body" name="body" type="text">
+
+          <h2 class="govuk-heading-m">Requested Date</h2>
+          <input class="govuk-input" id="message-requested-date" name="requestedDate" type="text">
+
           <input type="hidden" name="crumb" value="{{crumb}}">
           <button type="submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
               Submit
