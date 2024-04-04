@@ -44,8 +44,13 @@ module.exports = [
           type: 'submit',
           source: 'ffc-sfd-ahwp-stub'
         })
+        const messageId = request.payload.messageId
+        const scheme = request.payload.scheme
+        const tags = request.payload.tags
         const crn = request.payload.crn
-        console.log(`CRN successfully submitted to Service Bus: ${crn}`)
+        const content = request.payload.content
+        const requestedDate = request.payload.requestedDate
+        console.log(`The following message was successfully submitted to Service Bus via AHWP stub: ${messageId}, ${scheme}, ${tags}, ${crn}, ${content}, ${requestedDate}`)
         return h.redirect('/home')
       } catch (error) {
         console.error(`Failed to submit CRN to Service Bus: ${error}`)
