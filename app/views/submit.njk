@@ -16,21 +16,21 @@
 
 {% block content %}
     <div class="govuk-form-group">
-      <h3 class="govuk-label-wrapper">
+      <h1 class="govuk-label-wrapper">
         <label class="govuk-label govuk-label--l" for="crn-input">
-          Please enter your CRN (Customer Reference Number)
+          Please submit a mesage
         </label>
-      </h3>
+      </h1>
 
       <form action="/submit" method="POST">  
         <div class="govuk-grid-column-two-thirds">
           <input class="govuk-input" id="scheme" name="crn" type="text">
           <input type="hidden" name="crumb" value="{{crumb}}">
+          <button type="submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
+              Submit
+          </button>
         </div>  
         
-        <button type="submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
-            Submit
-        </button>
       </form>
     </div>
 {% endblock %}

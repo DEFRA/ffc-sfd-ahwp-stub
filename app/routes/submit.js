@@ -20,7 +20,7 @@ module.exports = [
       auth: false
     },
     handler: async (request, h) => {
-      console.log('Payload:', request.payload.crn)
+      console.log('Payload:', request.payload)
       try {
         const sender = new MessageSender({
           useCredentialChain: false,
@@ -30,7 +30,17 @@ module.exports = [
           address: process.env.PROCESSOR_TOPIC_ADDRESS
         })
         await sender.sendMessage({
-          body: { crn: request.payload.crn },
+          body: {
+            messageId: request.payload.messageId,
+            scheme: request.payload.scheme,
+            tags: [request.payload.tags],
+            crn: request.payload.crn,
+            content: {
+              heading: request.payload.heading,
+              body: request.payload.body
+            },
+            requestedDate: request.payload.requestedDate
+          },
           type: 'submit',
           source: 'ffc-sfd-ahwp-stub'
         })
