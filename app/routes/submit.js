@@ -20,7 +20,6 @@ module.exports = [
       auth: false
     },
     handler: async (request, h) => {
-      console.log('Payload:', request.payload)
       try {
         const sender = new MessageSender({
           useCredentialChain: false,
@@ -43,16 +42,6 @@ module.exports = [
           type: 'submit',
           source: 'ffc-sfd-ahwp-stub'
         })
-
-        const scheme = request.payload.scheme
-        const tags = request.payload.tags
-        const crn = request.payload.crn
-        const heading = request.payload.heading
-        const body = request.payload.body
-        const requestedDate = request.payload.requestedDate
-        console.log(
-          `The following message was successfully submitted to Service Bus via AHWP stub:\nScheme: ${scheme},\nTags: [${tags}],\nCRN: ${crn},\nContent: { Heading: ${heading}, Body: ${body} },\nRequested Date: ${requestedDate}`
-        )
         return h.redirect('/home')
       } catch (error) {
         console.error(`Failed to submit CRN to Service Bus: ${error}`)
