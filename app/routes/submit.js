@@ -17,7 +17,7 @@ module.exports = [
     method: POST,
     path: '/submit',
     options: {
-      auth: false
+      auth: { strategy: 'jwt', scope: [USER] }
     },
     handler: async (request, h) => {
       try {
