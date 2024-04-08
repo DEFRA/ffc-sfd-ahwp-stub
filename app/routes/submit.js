@@ -37,11 +37,20 @@ module.exports = [
               heading: request.payload.heading,
               body: request.payload.body
             },
-            requestedDate: request.payload.requestedDate
+            requestedDate: request.payload.requestedDate,
+            sbi: request.payload.sbi
           },
           type: 'submit',
           source: 'ffc-sfd-ahwp-stub'
         })
+        const scheme = request.payload.scheme
+        const tags = request.payload.tags
+        const crn = request.payload.crn
+        const heading = request.payload.heading
+        const body = request.payload.body
+        const requestedDate = request.payload.requestedDate
+        const sbi = request.payload.sbi
+        console.log(`Scheme: ${scheme},\nTags: ${tags},\nCRN: ${crn}, Content: {\nHeading: ${heading},\nBody: ${body}\n},\nRequested Date: ${requestedDate},\nSBI: ${sbi}`)
         return h.redirect('/home')
       } catch (error) {
         console.error(`Failed to submit CRN to Service Bus: ${error}`)
