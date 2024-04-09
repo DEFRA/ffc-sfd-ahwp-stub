@@ -1,6 +1,6 @@
 {
   "name": "ffc-sfd-ahwp-stub",
-  "version": "0.3.0",
+  "version": "0.3.20",
   "description": "",
   "homepage": "github.com?owner=defra&repo=ffc-sfd-ahwp-stub&organization=defra",
   "main": "app/index.js",
@@ -17,7 +17,11 @@
     "start:nodemon": "nodemon --inspect=0.0.0.0 --ext css,js,njk --legacy-watch app/index.js"
   },
   "author": "Defra",
-  "contributors": [],
+  "contributors": [
+    "John Watson <john.watson1@defra.gov.uk>",
+    "Simon Dunn <simon.dunn1@defra.gov.uk>",
+    "Rana Salem <rana.salem@defra.gov.uk>"
+  ],
   "license": "OGL-UK-3.0",
   "dependencies": {
     "@hapi/catbox-memory": "5.0.1",
@@ -28,7 +32,8 @@
     "@hapi/wreck": "18.0.1",
     "@hapi/yar": "11.0.1",
     "applicationinsights": "2.3.5",
-    "ffc-auth": "0.1.0",
+    "ffc-auth": "0.12.0",
+    "ffc-messaging": "2.9.0",
     "govuk-frontend": "5.2.0",
     "hapi-auth-jwt2": "10.4.0",
     "hapi-pino": "12.1.0",

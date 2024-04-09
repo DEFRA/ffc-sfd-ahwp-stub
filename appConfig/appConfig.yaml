@@ -4,3 +4,4 @@
   value: "3010"
 - key: APPINSIGHTS_CLOUDROLE
   value: "{{serviceName}}"
+
