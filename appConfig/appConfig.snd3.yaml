@@ -21,3 +21,8 @@
 - key: COOKIE_PASSWORD
   value: "{{servicename}}-COOKIE-PASSWORD"
   type: "keyvault"
+- key: MESSAGE_HOST
+  value: "{{servicename}}-MESSAGE-HOST"
+  type: "keyvault"
+- key: PROCESSOR_TOPIC_ADDRESS
+  value: "ffc-sfd-messages"
