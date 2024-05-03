@@ -7,8 +7,10 @@ module.exports = [
     method: GET,
     path: '/home',
     options: { auth: { strategy: 'jwt', scope: [USER] } },
-    handler: (_request, h) => {
-      return h.view('home', { singleFrontDoorUrl: serverConfig.singleFrontDoorUrl })
+    handler: (request, h) => {
+      const organisationId = request.auth.credentials.organisationId
+      const singleFrontDoorUrl = organisationId ? `${serverConfig.singleFrontDoorUrl}?organisationId=${organisationId}` : serverConfig.singleFrontDoorUrl
+      return h.view('home', { singleFrontDoorUrl })
     }
   }
 ]
