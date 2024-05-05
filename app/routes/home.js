@@ -1,6 +1,6 @@
 const { GET } = require('../constants/http-verbs')
-const { USER } = require('ffc-auth/scopes')
 const { serverConfig } = require('../config')
+const { USER } = require('../auth/scopes')
 
 module.exports = [
   {

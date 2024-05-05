@@ -6,10 +6,11 @@ module.exports = {
   plugin: {
     name: 'auth',
     register: async (server, _options) => {
-      const { publicKey } = await getKeys()
-
       server.auth.strategy('jwt', 'jwt', {
-        key: publicKey,
+        key: async () => {
+          const { publicKey } = await getKeys()
+          return { key: publicKey }
+        },
         cookieKey: AUTH_COOKIE_NAME,
         validate: validateToken,
         verifyOptions: { algorithms: [RS256] }

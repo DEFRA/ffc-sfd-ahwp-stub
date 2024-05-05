@@ -22,6 +22,9 @@
         Your Annual Health and Welfare Pathway application
       </h1>
 
+      <span class="govuk-caption-l">{{ auth.credentials.organisationId }}</span>
+      <h2 class="govuk-heading-l">Your organisation</h2>
+
       {{ govukTaskList({
         idPrefix: "application",
         items: [

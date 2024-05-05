@@ -14,7 +14,7 @@ module.exports = [{
     }
 
     if (authConfig.defraIdEnabled) {
-      return h.redirect(await getAuthorizationUrl())
+      return h.redirect(await getAuthorizationUrl({ organisationId: request.query.organisationId }))
     }
 
     return h.view('sign-in')

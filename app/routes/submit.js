@@ -1,6 +1,6 @@
 const { MessageSender } = require('ffc-messaging')
 const { GET, POST } = require('../constants/http-verbs')
-const { USER } = require('ffc-auth/scopes')
+const { USER } = require('../auth/scopes')
 
 module.exports = [
   {
