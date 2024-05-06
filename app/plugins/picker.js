@@ -7,7 +7,7 @@ module.exports = {
           return h.continue
         }
 
-        if (request.path.includes('/picker/')) {
+        if (request.path.includes('/picker/') || request.path.includes('/sign-in')) {
           return h.continue
         }
 

@@ -15,7 +15,7 @@ module.exports = {
         validate: validateToken,
         verifyOptions: { algorithms: [RS256] }
       })
-      server.auth.default({ strategy: 'jwt', mode: 'required' })
+      server.auth.default({ strategy: 'jwt', mode: 'try' })
     }
   }
 }

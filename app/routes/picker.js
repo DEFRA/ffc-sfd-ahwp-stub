@@ -1,5 +1,5 @@
 const Joi = require('joi')
-const { Boom } = require('@hapi/boom')
+const Boom = require('@hapi/boom')
 const { GET } = require('../constants/http-verbs')
 const { getAuthorizationUrl } = require('../auth')
 

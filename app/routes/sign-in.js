@@ -9,6 +9,12 @@ module.exports = [{
   path: '/sign-in',
   options: { auth: { strategy: 'jwt', mode: 'try' } },
   handler: async (request, h) => {
+    const redirect = request.query.redirect
+
+    if (redirect) {
+      request.yar.set('redirect', redirect)
+    }
+
     if (request.auth.isAuthenticated) {
       return h.redirect('/home')
     }
