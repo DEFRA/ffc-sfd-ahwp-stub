@@ -26,7 +26,7 @@ module.exports = [
           host: process.env.MESSAGE_HOST,
           username: process.env.MESSAGE_USER,
           password: process.env.MESSAGE_PASSWORD,
-          address: process.env.PROCESSOR_TOPIC_ADDRESS
+          address: process.env.MESSAGES_TOPIC_ADDRESS
         })
         await sender.sendMessage({
           body: {
