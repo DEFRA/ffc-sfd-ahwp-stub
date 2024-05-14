@@ -34,10 +34,8 @@ module.exports = [
             tags: [request.payload.tags],
             crn: request.payload.crn,
             sbi: request.payload.sbi,
-            content: {
-              heading: request.payload.heading,
-              body: request.payload.body
-            },
+            heading: request.payload.heading,
+            body: request.payload.body,
             requestedDate: request.payload.requestedDate
           },
           type: 'submit',
