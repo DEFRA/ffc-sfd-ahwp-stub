@@ -1,7 +1,7 @@
 const { authConfig } = require('../../config')
 const { getWellKnown } = require('./get-well-known')
 
-const getAuthorizationUrl = async () => {
+const getAuthorizationUrl = async (options) => {
   const { authorization_endpoint: url } = await getWellKnown()
 
   const query = [
@@ -12,9 +12,18 @@ const getAuthorizationUrl = async () => {
     `redirect_uri=${authConfig.redirectUrl}`,
     `scope=openid offline_access ${authConfig.clientId}`,
     'response_type=code',
-    'response_mode=form_post'
-  ].join('&')
-  return encodeURI(`${url}?${query}`)
+    'response_mode=query'
+  ]
+
+  if (options.forceReselection) {
+    query.push('forceReselection=true')
+  }
+
+  if (options.organisationId) {
+    query.push(`relationshipId=${options.organisationId}`)
+  }
+
+  return encodeURI(`${url}?${query.join('&')}`)
 }
 
 module.exports = {

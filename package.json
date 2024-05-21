@@ -1,6 +1,6 @@
 {
   "name": "ffc-sfd-ahwp-stub",
-  "version": "0.3.20",
+  "version": "0.4.0",
   "description": "",
   "homepage": "github.com?owner=defra&repo=ffc-sfd-ahwp-stub&organization=defra",
   "main": "app/index.js",
@@ -32,7 +32,6 @@
     "@hapi/wreck": "18.0.1",
     "@hapi/yar": "11.0.1",
     "applicationinsights": "2.3.5",
-    "ffc-auth": "0.12.0",
     "ffc-messaging": "2.9.0",
     "govuk-frontend": "5.2.0",
     "hapi-auth-jwt2": "10.4.0",

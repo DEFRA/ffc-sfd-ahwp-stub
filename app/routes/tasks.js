@@ -1,5 +1,5 @@
+const { USER } = require('../auth/scopes')
 const { GET } = require('../constants/http-verbs')
-const { USER } = require('ffc-auth/scopes')
 
 module.exports = [
   {

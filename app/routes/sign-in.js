@@ -9,12 +9,18 @@ module.exports = [{
   path: '/sign-in',
   options: { auth: { strategy: 'jwt', mode: 'try' } },
   handler: async (request, h) => {
+    const redirect = request.query.redirect
+
+    if (redirect) {
+      request.yar.set('redirect', redirect)
+    }
+
     if (request.auth.isAuthenticated) {
       return h.redirect('/home')
     }
 
     if (authConfig.defraIdEnabled) {
-      return h.redirect(await getAuthorizationUrl())
+      return h.redirect(await getAuthorizationUrl({ organisationId: request.query.organisationId }))
     }
 
     return h.view('sign-in')

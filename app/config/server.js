@@ -15,7 +15,8 @@ const schema = Joi.object().keys({
     clearInvalid: Joi.bool().default(false),
     strictHeader: Joi.bool().default(true),
     path: Joi.string().default('/')
-  })
+  }),
+  singleFrontDoorUrl: Joi.string().uri().required()
 })
 
 const config = {
@@ -31,7 +32,8 @@ const config = {
     isHttpOnly: process.env.AUTH_COOKIE_HTTP_ONLY,
     clearInvalid: process.env.AUTH_COOKIE_CLEAR_INVALID,
     strictHeader: process.env.AUTH_COOKIE_STRICT_HEADER
-  }
+  },
+  singleFrontDoorUrl: process.env.SINGLE_FRONT_DOOR_URL
 }
 
 const { error, value } = schema.validate(config)

@@ -37,6 +37,7 @@ resources:
 extends:
   template: /pipelines/common-app-build.yaml@DEFRA-ADPPipelineCommon
   parameters:
+    programmeName: "ffc"
     projectName: "ffc-sfd-ahwp-stub"
     serviceName: "ffc-sfd-ahwp-stub"
     deployFromFeature: ${{ parameters.deployFromFeature }}
@@ -52,9 +53,3 @@ extends:
       filetype: "yaml"
       variableGroups:
         - ffc-sfd-ahwp-stub-<environment>
-      variables:
-        - ffc-sfd-ahwp-stub-APPINSIGHTS-CONNECTIONSTRING
-        - ffc-sfd-ahwp-stub-DEFRA-ID-CLIENT-ID
-        - ffc-sfd-ahwp-stub-DEFRA-ID-CLIENT-SECRET
-        - ffc-sfd-ahwp-stub-DEFRA-ID-SERVICE-ID
-        - ffc-sfd-ahwp-stub-COOKIE-PASSWORD
