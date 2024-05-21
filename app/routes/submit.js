@@ -1,6 +1,6 @@
 const { MessageSender } = require('ffc-messaging')
 const { GET, POST } = require('../constants/http-verbs')
-const { USER } = require('ffc-auth/scopes')
+const { USER } = require('../auth/scopes')
 
 module.exports = [
   {
@@ -26,7 +26,7 @@ module.exports = [
           host: process.env.MESSAGE_HOST,
           username: process.env.MESSAGE_USER,
           password: process.env.MESSAGE_PASSWORD,
-          address: process.env.PROCESSOR_TOPIC_ADDRESS
+          address: process.env.MESSAGES_TOPIC_ADDRESS
         })
         await sender.sendMessage({
           body: {
@@ -34,10 +34,8 @@ module.exports = [
             tags: [request.payload.tags],
             crn: request.payload.crn,
             sbi: request.payload.sbi,
-            content: {
-              heading: request.payload.heading,
-              body: request.payload.body
-            },
+            heading: request.payload.heading,
+            body: request.payload.body,
             requestedDate: request.payload.requestedDate
           },
           type: 'submit',

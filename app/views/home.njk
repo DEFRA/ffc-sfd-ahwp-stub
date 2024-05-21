@@ -22,19 +22,20 @@
         Start a new annual health and welfare review application
       </h1>
 
-    <div>
-      {{ govukButton({
-        text: "Start new application",
-        href: "/tasks"
-      }) }}
-    </div>
-    <div>
-      {{ govukButton({
-        text: "Submit message",
-        href: "/submit"
-      }) }}
-    </div>
+      <span class="govuk-caption-l">{{ auth.credentials.organisationId }}</span>
+      <h2 class="govuk-heading-l">Your organisation</h2>
 
+      <ul class="govuk-list">
+        <li>
+          <a class="govuk-link" href="/tasks">Tasks</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="/messages">Messages</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="{{ singleFrontDoorUrl }}">Return to Single Front Door</a>
+        </li>
+      </ul>
     </div>
   </div>
 {% endblock %}

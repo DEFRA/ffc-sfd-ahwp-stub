@@ -9,7 +9,7 @@ module.exports = {
     auth: false
   },
   handler: async (request, h) => {
-    const redirectUrl = authConfig.defraIdEnabled ? await getAuthorizationUrl() : '/sign-in'
+    const redirectUrl = authConfig.defraIdEnabled ? await getAuthorizationUrl({ organisationId: request.query.organisationId }) : '/sign-in'
     return h.view('index', { redirectUrl })
   }
 }
