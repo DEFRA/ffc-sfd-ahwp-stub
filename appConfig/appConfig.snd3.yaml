@@ -26,5 +26,5 @@
   type: "keyvault"
 - key: PROCESSOR_TOPIC_ADDRESS
   value: "ffc-sfd-messages"
-- key: SINGLE-FRONT-DOOR-URL
+- key: SINGLE_FRONT_DOOR_URL
   value: "https://ffc-sfd-landing-page.snd3.adp.defra.gov.uk/landing-page"
