@@ -16,7 +16,7 @@ const schema = Joi.object().keys({
     strictHeader: Joi.bool().default(true),
     path: Joi.string().default('/')
   }),
-  singleFrontDoorUrl: Joi.string().uri().required()
+  singleFrontDoorUrl: Joi.string().uri().default('http://localhost:3000/landing-page/home')
 })
 
 const config = {
