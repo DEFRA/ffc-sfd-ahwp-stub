@@ -49,7 +49,7 @@ module.exports = [
         const body = request.payload.body
         const requestedDate = request.payload.requestedDate
         console.log(
-          `MESSAGE SUBMITTED: [\nScheme: ${scheme},\nTags: ${tags},\nCRN: ${crn},\nSBI: ${sbi},\nContent: {\nHeading: ${heading},\nBody: ${body}\n},\nRequested Date: ${requestedDate}\n`
+          `MESSAGE SUBMITTED: [\nScheme: ${scheme},\nTags: ${tags},\nCRN: ${crn},\nSBI: ${sbi},\nHeading: ${heading},\nBody: ${body},\nRequested Date: ${requestedDate}\n`
         )
         return h.redirect('/home')
       } catch (error) {
