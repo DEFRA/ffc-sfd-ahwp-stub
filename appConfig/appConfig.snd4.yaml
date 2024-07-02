@@ -31,6 +31,6 @@
   value: "{{servicename}}-MESSAGE-PASSWORD"
   type: "keyvault"
 - key: PROCESSOR_TOPIC_ADDRESS
-  value: "ffc-sfd-messages"
+  value: "fcp-sfd-messages"
 - key: SINGLE-FRONT-DOOR-URL
   value: "https://ffc-sfd-landing-page.snd4.adp.defra.gov.uk/landing-page"
