@@ -37,6 +37,7 @@ resources:
 extends:
   template: /pipelines/common-app-build.yaml@DEFRA-ADPPipelineCommon
   parameters:
+    teamName: "fcp-sfd"
     programmeName: "ffc"
     projectName: "ffc-sfd-ahwp-stub"
     serviceName: "ffc-sfd-ahwp-stub"
