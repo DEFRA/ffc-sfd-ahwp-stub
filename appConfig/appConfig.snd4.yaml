@@ -23,10 +23,13 @@
   type: "keyvault"
 - key: MESSAGE_HOST
   value: "{{servicename}}-MESSAGE-HOST"
+  type: "keyvault"
 - key: MESSAGE_USER
   value: "{{servicename}}-MESSAGE-USER"
+  type: "keyvault"
 - key: MESSAGE_PASSWORD
   value: "{{servicename}}-MESSAGE-PASSWORD"
+  type: "keyvault"
 - key: PROCESSOR_TOPIC_ADDRESS
   value: "ffc-sfd-messages"
 - key: SINGLE-FRONT-DOOR-URL
