@@ -15,16 +15,22 @@
 - key: DEFRA_ID_POLICY
   value: "b2c_1a_cui_cpdev_signupsigninsfi"
 - key: DEFRA_ID_REDIRECT_URL
-  value: "https://ffc-sfd-ahwp-stub.snd3.adp.defra.gov.uk/sign-in-oidc"
+  value: "https://ffc-sfd-ahwp-stub.snd4.adp.defra.gov.uk/sign-in-oidc"
 - key: DEFRA_ID_POST_LOGOUT_REDIRECT_URL
-  value: "https://ffc-sfd-ahwp-stub.snd3.adp.defra.gov.uk/sign-out-oidc"
+  value: "https://ffc-sfd-ahwp-stub.snd4.adp.defra.gov.uk/sign-out-oidc"
 - key: COOKIE_PASSWORD
   value: "{{servicename}}-COOKIE-PASSWORD"
   type: "keyvault"
 - key: MESSAGE_HOST
   value: "{{servicename}}-MESSAGE-HOST"
   type: "keyvault"
+- key: MESSAGE_USER
+  value: "{{servicename}}-MESSAGE-USER"
+  type: "keyvault"
+- key: MESSAGE_PASSWORD
+  value: "{{servicename}}-MESSAGE-PASSWORD"
+  type: "keyvault"
 - key: PROCESSOR_TOPIC_ADDRESS
-  value: "ffc-sfd-messages"
+  value: "fcp-sfd-messages"
 - key: SINGLE-FRONT-DOOR-URL
-  value: "https://ffc-sfd-landing-page.snd3.adp.defra.gov.uk/landing-page"
+  value: "https://ffc-sfd-landing-page.snd4.adp.defra.gov.uk/landing-page"
