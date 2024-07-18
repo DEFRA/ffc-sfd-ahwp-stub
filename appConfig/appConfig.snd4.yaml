@@ -7,6 +7,7 @@
   value: "https://your-account.cpdev.cui.defra.gov.uk/idphub/b2c/b2c_1a_cui_cpdev_signupsigninsfi/.well-known/openid-configuration"
 - key: DEFRA_ID_CLIENT_ID
   value: "{{servicename}}-DEFRA-ID-CLIENT-ID"
+  type: "keyvault"
 - key: DEFRA_ID_CLIENT_SECRET
   value: "{{servicename}}-DEFRA-ID-CLIENT-SECRET"
   type: "keyvault"
@@ -31,6 +32,6 @@
   value: "{{servicename}}-MESSAGE-PASSWORD"
   type: "keyvault"
 - key: PROCESSOR_TOPIC_ADDRESS
-  value: "fcp-sfd-messages"
+  value: "fcp-sfd-customer-messages"
 - key: SINGLE-FRONT-DOOR-URL
   value: "https://ffc-sfd-landing-page.snd4.adp.defra.gov.uk/landing-page"
