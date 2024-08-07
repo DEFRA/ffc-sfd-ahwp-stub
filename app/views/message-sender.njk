@@ -1,0 +1,88 @@
+{% extends '_layout.njk' %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/task-list/macro.njk" import govukTaskList %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+        text: "Home",
+        href: "/home",
+        attributes: {
+          id: "home"
+        }
+      }) 
+    }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-form-group">
+      <h1 class="govuk-heading-l">
+        <label class="govuk-label govuk-label--l" for="message-input">
+          Please submit a Json message
+        </label>
+      </h1>
+      <h3 class="govuk-heading-m">
+        <label class="govuk-label govuk-label--m">
+          This form is for demo purposes only.
+        </label>
+      </h3>
+
+      <form action="/message-sender" method="POST">  
+        <div class="govuk-grid-column-two-thirds">
+
+          <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="message-body">
+                Message Body
+              </label>
+            </h1>
+            <div id="message-body-hint" class="govuk-hint">
+              Please enter the message body in valid Json format.
+            </div>
+            <textarea class="govuk-textarea" id="message-body" name="messageBody" rows="20" aria-describedby="message-body-hint"></textarea>
+          </div>
+          
+          <div class="govuk-!-padding-bottom-5">
+            <h2 class="govuk-heading-m">Tags</h2>
+            <input class="govuk-input" id="message-tags" name="tags" type="text">
+          </div>
+
+          <div class="govuk-!-padding-bottom-5">
+            <h2 class="govuk-heading-m">CRN (Customer Reference Number)</h2>
+            <input class="govuk-input" id="message-crn" name="crn" type="text">
+          </div>
+
+          <div class="govuk-!-padding-bottom-5">
+            <h2 class="govuk-heading-m">SBI (Single Business Identifier)</h2>
+            <input class="govuk-input" id="message-sbi" name="sbi" type="text">
+          </div>
+
+          <div class="govuk-!-padding-bottom-5">
+            <h2 class="govuk-heading-m">Organisation ID</h2>
+            <input class="govuk-input" id="message-organisation-id" name="organisationId" type="text">
+          </div>
+
+          <div class="govuk-!-padding-bottom-5">
+            <h2 class="govuk-heading-m">Subject (Heading)</h2>
+            <input class="govuk-input" id="message-content-heading" name="heading" type="text">
+          </div>
+
+          <div class="govuk-!-padding-bottom-5">
+            <h2 class="govuk-heading-m">Message (Body)</h2>
+            <input class="govuk-input" id="message-content-body" name="body" type="text">
+          </div>
+
+          <div class="govuk-!-padding-bottom-5">
+            <h2 class="govuk-heading-m">Requested Date</h2>
+            <input class="govuk-input" id="message-requested-date" name="requestedDate" type="text">
+          </div>
+          
+          <input type="hidden" name="crumb" value="{{crumb}}">
+          <button type="submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
+              Submit
+          </button>
+        </div>  
+        
+      </form>
+    </div>
+{% endblock %}
