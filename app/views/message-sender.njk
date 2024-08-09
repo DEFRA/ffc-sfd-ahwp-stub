@@ -43,40 +43,17 @@
           </div>
           
           <div class="govuk-!-padding-bottom-5">
-            <h2 class="govuk-heading-m">Tags</h2>
-            <input class="govuk-input" id="message-tags" name="tags" type="text">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l"  for="messageAction">
+                Message Action
+              </label>
+            </h1>
+            <select class="govuk-select" id="messageAction" name="messageAction">
+              <option value="action" selected>Please Select</option>
+              <option value="sendEmail">Send Email</option>
+              <option value="crm">CRM Process Flow</option>
+            </select>
           </div>
-
-          <div class="govuk-!-padding-bottom-5">
-            <h2 class="govuk-heading-m">CRN (Customer Reference Number)</h2>
-            <input class="govuk-input" id="message-crn" name="crn" type="text">
-          </div>
-
-          <div class="govuk-!-padding-bottom-5">
-            <h2 class="govuk-heading-m">SBI (Single Business Identifier)</h2>
-            <input class="govuk-input" id="message-sbi" name="sbi" type="text">
-          </div>
-
-          <div class="govuk-!-padding-bottom-5">
-            <h2 class="govuk-heading-m">Organisation ID</h2>
-            <input class="govuk-input" id="message-organisation-id" name="organisationId" type="text">
-          </div>
-
-          <div class="govuk-!-padding-bottom-5">
-            <h2 class="govuk-heading-m">Subject (Heading)</h2>
-            <input class="govuk-input" id="message-content-heading" name="heading" type="text">
-          </div>
-
-          <div class="govuk-!-padding-bottom-5">
-            <h2 class="govuk-heading-m">Message (Body)</h2>
-            <input class="govuk-input" id="message-content-body" name="body" type="text">
-          </div>
-
-          <div class="govuk-!-padding-bottom-5">
-            <h2 class="govuk-heading-m">Requested Date</h2>
-            <input class="govuk-input" id="message-requested-date" name="requestedDate" type="text">
-          </div>
-          
           <input type="hidden" name="crumb" value="{{crumb}}">
           <button type="submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
               Submit

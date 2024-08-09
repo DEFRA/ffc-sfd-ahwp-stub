@@ -32,7 +32,7 @@ module.exports = [
             body: request.payload.body,
             requestedDate: request.payload.requestedDate
           },
-          type: 'submit',
+          type: 'sendEmail',
           source: 'ffc-sfd-ahwp-stub'
         })
 
