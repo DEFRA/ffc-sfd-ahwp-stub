@@ -11,7 +11,7 @@ module.exports = [
       return h.view('files')
     }
   },
-  { 
+  {
     method: 'POST',
     path: '/files',
     options: {
@@ -19,8 +19,10 @@ module.exports = [
       validate: {
         payload: {
           scheme: Joi.string().required(),
-          collection: Joi.string().required()
-      }},
+          collection: Joi.string().required(),
+          files: Joi.string().required()
+        }
+      }
     },
     handler: async (request, h) => {
       const { payload } = request

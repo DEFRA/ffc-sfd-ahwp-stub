@@ -1,4 +1,5 @@
 {% extends '_layout.njk' %}
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
@@ -18,7 +19,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">Upload Files</h1>
-      <form id="uploadForm" action="/files" method="post" enctype="multipart/form-data">
+      <form id="uploadForm" action="/files" method="post">
         <div class="govuk-form-group">
           <label class="govuk-label" for="scheme">Scheme</label>
           <input class="govuk-input" id="scheme" name="scheme" type="text" required>
@@ -27,10 +28,15 @@
           <label class="govuk-label" for="collection">Collection</label>
           <input class="govuk-input" id="collection" name="collection" type="text" required>
         </div>
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="files">Choose files</label>
-          <input class="govuk-file-upload" id="files" name="files" type="file" multiple required>
-        </div>
+
+        {{ govukFileUpload({
+          id: "files",
+          name: "files",
+          label: {
+            text: "Upload a file"
+          }
+        }) }}
+
         {{ govukButton({
           text: "Upload",
           type: "submit"
