@@ -1,0 +1,43 @@
+{% extends '_layout.njk' %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+        text: "Home",
+        href: "/home",
+        attributes: {
+          id: "home"
+        }
+      }) 
+    }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Upload Files</h1>
+      <form id="uploadForm" action="/files" method="post" enctype="multipart/form-data">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="scheme">Scheme</label>
+          <input class="govuk-input" id="scheme" name="scheme" type="text" required>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="collection">Collection</label>
+          <input class="govuk-input" id="collection" name="collection" type="text" required>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="files">Choose files</label>
+          <input class="govuk-file-upload" id="files" name="files" type="file" multiple required>
+        </div>
+        {{ govukButton({
+          text: "Upload",
+          type: "submit"
+        }) }}
+        <input type="hidden" name="crumb" value="{{crumb}}">
+      </form>
+      <div id="result" class="govuk-body"></div>
+    </div>
+  </div>
+{% endblock %}
