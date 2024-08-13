@@ -12,6 +12,7 @@ const routes = [].concat(
   require('../routes/submit'),
   require('../routes/message-sender'),
   require('../routes/files'),
+  require('../routes/files-download'),
 )
 
 module.exports = {
