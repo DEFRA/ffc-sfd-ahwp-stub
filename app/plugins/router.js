@@ -13,6 +13,7 @@ const routes = [].concat(
   require('../routes/message-sender'),
   require('../routes/files'),
   require('../routes/files-download'),
+  require('../routes/uploads'),
 )
 
 module.exports = {

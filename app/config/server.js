@@ -6,6 +6,7 @@ const schema = Joi.object().keys({
   env: Joi.string().valid(DEVELOPMENT, TEST, PRODUCTION).default(DEVELOPMENT),
   serviceName: Joi.string().default('Annual Health and Welfare Review'),
   cookiePassword: Joi.string().required(),
+  dataHost: Joi.string().optional(),
   cookieOptions: Joi.object({
     ttl: Joi.number().default(1000 * 60 * 60 * 24), // 24 hours
     encoding: Joi.string().default('none'),
@@ -24,6 +25,7 @@ const config = {
   env: process.env.NODE_ENV,
   serviceName: process.env.SERVICE_NAME,
   cookiePassword: process.env.COOKIE_PASSWORD,
+  dataHost: process.env.DATA_HOST,
   cookieOptions: {
     ttl: process.env.AUTH_COOKIE_TTL,
     encoding: process.env.AUTH_COOKIE_ENCODING,
