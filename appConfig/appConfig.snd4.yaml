@@ -13,6 +13,7 @@
   type: "keyvault"
 - key: DEFRA_ID_SERVICE_ID
   value: "{{servicename}}-DEFRA-ID-SERVICE-ID"
+  type: "keyvault"
 - key: DEFRA_ID_POLICY
   value: "b2c_1a_cui_cpdev_signupsigninsfi"
 - key: DEFRA_ID_REDIRECT_URL
