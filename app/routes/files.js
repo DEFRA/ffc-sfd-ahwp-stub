@@ -55,7 +55,7 @@ module.exports = [
         form.append('scheme', scheme)
         form.append('collection', collection)
         form.append('files', file._data, sanitizedFilename)
-        form.append('organisation', organisation.sbi)
+        form.append('sbi', organisation.sbi)
         form.append('crn', crn)
 
         try {
