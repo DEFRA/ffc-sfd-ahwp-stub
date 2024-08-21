@@ -1,4 +1,3 @@
-const Hapi = require('@hapi/hapi')
 const getFilesMetadataBySbi = require('../data/get-files-metadata-by-sbi')
 
 module.exports = {
@@ -7,7 +6,6 @@ module.exports = {
   handler: async (request, h) => {
     try {
       const metadata = await getFilesMetadataBySbi(request)
-      console.log(metadata)
       return h.view('uploads', { files: metadata })
     } catch (error) {
       console.error('Error fetching file metadata:', error.message)

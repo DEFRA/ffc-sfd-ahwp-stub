@@ -1,6 +1,8 @@
-const Wreck = require('@hapi/wreck')
-const FormData = require('form-data')
 const { getOrganisation } = require('../data')
+const { uploadFile } = require('../files')
+const { handleUploadError } = require('../files')
+const { parseUploadResponse } = require('../files')
+const { deleteFile } = require('../files')
 
 let sessionMetadata = []
 
@@ -51,49 +53,11 @@ module.exports = [
       let fileData = []
 
       for (const { file, sanitizedFilename } of uploadedFiles) {
-        const form = new FormData()
-        form.append('scheme', scheme)
-        form.append('collection', collection)
-        form.append('files', file._data, sanitizedFilename)
-        form.append('sbi', organisation.sbi)
-        form.append('crn', crn)
-
         try {
-          console.log(form)
-          const { res, payload: responsePayload } = await Wreck.post('http://ffc-sfd-file-processor:3019/upload', {
-            payload: form,
-            headers: form.getHeaders()
-          })
-
-          const responseData = JSON.parse(responsePayload)
-          responseData.forEach(file => {
-            if (file.error) {
-              console.error(`Error: ${file.error}, Filename: ${file.fileName}`)
-              fileData.push({
-                filename: file.fileName,
-                status: 'Error',
-                error: file.error
-              })
-            } else {
-              fileData.push({
-                filename: file.metadata.filename,
-                blobReference: file.metadata.blobReference,
-                scheme: file.metadata.scheme,
-                collection: file.metadata.collection,
-                status: 'Success'
-              })
-            }
-          })
+          const responseData = await uploadFile(file, sanitizedFilename, scheme, collection, organisation, crn)
+          fileData.push(...parseUploadResponse(responseData))
         } catch (err) {
-          let simplifiedError = ''
-          if (err.message === 'Response Error: 413 Payload Too Large') {
-            simplifiedError = 'Cannot exceed 10 MB'
-          }
-          fileData.push({
-            filename: sanitizedFilename,
-            status: 'Error',
-            error: simplifiedError
-          })
+          fileData.push(handleUploadError(err, sanitizedFilename))
         }
       }
 
@@ -124,9 +88,7 @@ module.exports = [
       const { blobReference, _method } = request.payload
 
       if (_method === 'DELETE') {
-        // Check if blobReference is empty
         if (!blobReference) {
-          // Remove the file from sessionMetadata
           sessionMetadata = sessionMetadata.filter(file => file.status !== 'Error')
       
           return h.view('files', {
@@ -134,13 +96,11 @@ module.exports = [
             files: sessionMetadata
           })
         } else {
-          // Remove the file from sessionMetadata
           sessionMetadata = sessionMetadata.filter(file => file.blobReference !== blobReference)
       
           try {
-            await Wreck.delete(`http://ffc-sfd-file-processor:3019/delete/${blobReference}`)
+            await deleteFile(blobReference)
           } catch (err) {
-            console.error(`Failed to delete file: ${blobReference}`, err)
             return h.view('files', {
               message: 'Failed to delete file',
               files: sessionMetadata
@@ -153,5 +113,6 @@ module.exports = [
           })
         }
       }
-  }}
+    }
+  }
 ]

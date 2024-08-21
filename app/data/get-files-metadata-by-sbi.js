@@ -7,7 +7,6 @@ const getFilesMetadataBySbi = async (request) => {
   const organisation = await getOrganisation(request)
   const sbi = organisation.sbi
   try {
-    console.log('sbi:', organisation)
     const query = `query FilesMetadataBySbi {
       filesMetadataBySbi(sbi: "${sbi}") {
         metadata {
