@@ -1,8 +1,9 @@
 const Wreck = require('@hapi/wreck')
+const { serverConfig } = require('../config')
 
 const deleteFile = async (blobReference) => {
   try {
-    await Wreck.delete(`http://ffc-sfd-file-processor:3019/delete/${blobReference}`)
+    await Wreck.delete(`${serverConfig.fileProcessorDeleteUrl}${blobReference}`)
   } catch (err) {
     console.error(`Failed to delete file: ${blobReference}`, err)
     throw err

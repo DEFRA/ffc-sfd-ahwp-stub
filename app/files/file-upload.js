@@ -1,5 +1,6 @@
 const Wreck = require('@hapi/wreck')
 const FormData = require('form-data')
+const { serverConfig } = require('../config')
 
 const uploadFile = async (file, sanitizedFilename, scheme, collection, organisation, crn) => {
   const form = new FormData()
@@ -10,7 +11,7 @@ const uploadFile = async (file, sanitizedFilename, scheme, collection, organisat
   form.append('crn', crn)
 
   try {
-    const { res, payload: responsePayload } = await Wreck.post('http://ffc-sfd-file-processor:3019/upload', {
+    const { res, payload: responsePayload } = await Wreck.post(`${serverConfig.fileProcessorUploadUrl}`, {
       payload: form,
       headers: form.getHeaders()
     })

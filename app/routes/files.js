@@ -1,8 +1,5 @@
 const { getOrganisation } = require('../data')
-const { uploadFile } = require('../files')
-const { handleUploadError } = require('../files')
-const { parseUploadResponse } = require('../files')
-const { deleteFile } = require('../files')
+const { uploadFile, handleUploadError, parseUploadResponse, deleteFile } = require('../files')
 
 let sessionMetadata = []
 
@@ -38,7 +35,7 @@ module.exports = [
         return h.response({ error: 'No files uploaded' }).code(400)
       }
 
-      let uploadedFiles = []
+      const uploadedFiles = []
 
       if (Array.isArray(files)) {
         files.forEach(file => {
@@ -50,7 +47,7 @@ module.exports = [
         uploadedFiles.push({ file: files, sanitizedFilename })
       }
 
-      let fileData = []
+      const fileData = []
 
       for (const { file, sanitizedFilename } of uploadedFiles) {
         try {

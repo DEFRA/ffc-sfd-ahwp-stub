@@ -6,7 +6,7 @@ const handleUploadError = (err, sanitizedFilename) => {
   return {
     filename: sanitizedFilename,
     status: 'Error',
-    error: simplifiedError
+    error: simplifiedError ? simplifiedError : err.message
   }
 }
 

@@ -1,4 +1,5 @@
 const Wreck = require('@hapi/wreck')
+const { serverConfig } = require('../config')
 
 module.exports = {
   method: 'GET',
@@ -8,7 +9,7 @@ module.exports = {
     const { filename } = request.query
 
     try {
-      const { res, payload } = await Wreck.get(`http://ffc-sfd-file-processor:3019/download/${blobReference}`, {
+      const { res, payload } = await Wreck.get(`${serverConfig.fileProcessorDownloadUrl}${blobReference}`, {
         responseType: 'stream'
       })
 

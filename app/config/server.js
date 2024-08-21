@@ -7,6 +7,9 @@ const schema = Joi.object().keys({
   serviceName: Joi.string().default('Annual Health and Welfare Review'),
   cookiePassword: Joi.string().required(),
   dataHost: Joi.string().optional(),
+  fileProcessorUploadUrl: Joi.string().optional(),
+  fileProcessorDeleteUrl: Joi.string().optional(),
+  fileProcessorDownloadUrl: Joi.string().optional(),
   cookieOptions: Joi.object({
     ttl: Joi.number().default(1000 * 60 * 60 * 24), // 24 hours
     encoding: Joi.string().default('none'),
@@ -26,6 +29,9 @@ const config = {
   serviceName: process.env.SERVICE_NAME,
   cookiePassword: process.env.COOKIE_PASSWORD,
   dataHost: process.env.DATA_HOST,
+  fileProcessorUploadUrl: process.env.FILE_PROCESSOR_UPLOAD_URL,
+  fileProcessorDeleteUrl: process.env.FILE_PROCESSOR_DELETE_URL,
+  fileProcessorDownloadUrl: process.env.FILE_PROCESSOR_DOWNLOAD_URL,
   cookieOptions: {
     ttl: process.env.AUTH_COOKIE_TTL,
     encoding: process.env.AUTH_COOKIE_ENCODING,
