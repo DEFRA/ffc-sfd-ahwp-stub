@@ -24,3 +24,5 @@ services:
       MESSAGES_SUBSCRIPTION_ADDRESS: ${MESSAGES_SUBSCRIPTION_ADDRESS}-${DEV_SUFFIX}
       MESSAGES_TOPIC_ADDRESS: ${MESSAGES_TOPIC_ADDRESS}-${DEV_SUFFIX}
       SINGLE_FRONT_DOOR_URL: http://localhost:3000/landing-page/home
+      DATA_HOST: ${DATA_HOST:-http://ffc-sfd-data:3004/graphql}
+      FILE_PROCESSOR_URL: ${FILE_PROCESSOR_URL:-http://ffc-sfd-file-processor:3019}

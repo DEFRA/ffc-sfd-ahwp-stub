@@ -7,11 +7,13 @@
   value: "https://your-account.cpdev.cui.defra.gov.uk/idphub/b2c/b2c_1a_cui_cpdev_signupsigninsfi/.well-known/openid-configuration"
 - key: DEFRA_ID_CLIENT_ID
   value: "{{servicename}}-DEFRA-ID-CLIENT-ID"
+  type: "keyvault"
 - key: DEFRA_ID_CLIENT_SECRET
   value: "{{servicename}}-DEFRA-ID-CLIENT-SECRET"
   type: "keyvault"
 - key: DEFRA_ID_SERVICE_ID
   value: "{{servicename}}-DEFRA-ID-SERVICE-ID"
+  type: "keyvault"
 - key: DEFRA_ID_POLICY
   value: "b2c_1a_cui_cpdev_signupsigninsfi"
 - key: DEFRA_ID_REDIRECT_URL

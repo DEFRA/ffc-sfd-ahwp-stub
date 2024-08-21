@@ -1,5 +1,0 @@
-services:
-  ffc-sfd-ahwp-stub:
-    command: npm run test:debug
-    ports:
-      - "9100:9229"

@@ -1,0 +1,81 @@
+{% extends '_layout.njk' %}
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+        text: "Home",
+        href: "/home",
+        attributes: {
+          id: "home"
+        }
+      }) 
+    }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Upload Files</h1>
+      <form id="uploadForm" action="/files" method="post" enctype="multipart/form-data">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="scheme">Scheme</label>
+          <input class="govuk-input" id="scheme" name="scheme" type="text" required>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="collection">Collection</label>
+          <input class="govuk-input" id="collection" name="collection" type="text" required>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="files">Upload files</label>
+          <input class="govuk-file-upload" id="files" name="files" type="file" multiple required>
+        </div>
+        <button class="govuk-button" type="submit">Upload</button>
+        <input type="hidden" name="crumb" value="{{crumb}}">
+      </form>
+      <div id="result" class="govuk-body">
+  {% if message %}
+    <p>{{ message }}</p>
+  {% endif %}
+  {% if files %}
+    <h2>Uploaded Files</h2>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col">Filename</th>
+          <th class="govuk-table__header" scope="col">Status</th>
+          <th class="govuk-table__header" scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for file in files %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="{{ file.blobReference }}?filename={{ file.filename }}">{{ file.filename }}</a>
+            </td>
+            <td class="govuk-table__cell">
+              {% if file.status == 'Success' %}
+                <strong class="govuk-tag govuk-tag--green">Success</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--red">Error: {{ file.error }}</strong>
+              {% endif %}
+            </td>
+            <td class="govuk-table__cell">
+              <form id="submitDelete" action="/files/delete" method="post">
+                <input type="hidden" name="blobReference" value="{{ file.blobReference }}">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="govuk-button" data-module="govuk-button">
+                  Delete
+                </button>
+                <input type="hidden" name="crumb" value="{{crumb}}">
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</div>
+{% endblock %}

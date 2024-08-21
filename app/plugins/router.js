@@ -10,7 +10,10 @@ const routes = [].concat(
   require('../routes/sign-in-oidc'),
   require('../routes/picker'),
   require('../routes/submit'),
-  require('../routes/message-sender')
+  require('../routes/message-sender'),
+  require('../routes/files'),
+  require('../routes/files-download'),
+  require('../routes/uploads'),
 )
 
 module.exports = {
