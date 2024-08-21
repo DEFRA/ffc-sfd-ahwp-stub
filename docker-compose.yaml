@@ -25,6 +25,4 @@ services:
       MESSAGES_TOPIC_ADDRESS: ${MESSAGES_TOPIC_ADDRESS}-${DEV_SUFFIX}
       SINGLE_FRONT_DOOR_URL: http://localhost:3000/landing-page/home
       DATA_HOST: ${DATA_HOST:-http://ffc-sfd-data:3004/graphql}
-      FILE_PROCESSOR_DELETE_URL: ${FILE_PROCESSOR_DELETE_URL:-http://ffc-sfd-file-processor:3019/delete/}
-      FILE_PROCESSOR_UPLOAD_URL: ${FILE_PROCESSOR_UPLOAD_URL:-http://ffc-sfd-file-processor:3019/upload/}
-      FILE_PROCESSOR_DOWNLOAD_URL: ${FILE_PROCESSOR_DOWNLOAD_URL:-http://ffc-sfd-file-processor:3019/download/}
+      FILE_PROCESSOR_URL: ${FILE_PROCESSOR_DELETE_URL:-http://ffc-sfd-file-processor:3019}

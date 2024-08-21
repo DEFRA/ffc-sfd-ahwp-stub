@@ -11,7 +11,7 @@ const uploadFile = async (file, sanitizedFilename, scheme, collection, organisat
   form.append('crn', crn)
 
   try {
-    const { res, payload: responsePayload } = await Wreck.post(`${serverConfig.fileProcessorUploadUrl}`, {
+    const { res, payload: responsePayload } = await Wreck.post(`${serverConfig.fileProcessorUrl}/upload`, {
       payload: form,
       headers: form.getHeaders()
     })

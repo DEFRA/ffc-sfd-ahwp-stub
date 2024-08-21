@@ -9,7 +9,7 @@ module.exports = {
     const { filename } = request.query
 
     try {
-      const { res, payload } = await Wreck.get(`${serverConfig.fileProcessorDownloadUrl}${blobReference}`, {
+      const { res, payload } = await Wreck.get(`${serverConfig.fileProcessorUrl}/download/${blobReference}`, {
         responseType: 'stream'
       })
 
