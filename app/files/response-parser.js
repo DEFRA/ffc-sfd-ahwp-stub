@@ -1,4 +1,4 @@
-function parseUploadResponse(responseData) {
+const parseUploadResponse = (responseData) => {
   const fileData = []
   responseData.forEach(file => {
     if (file.error) {

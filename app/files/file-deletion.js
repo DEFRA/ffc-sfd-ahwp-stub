@@ -1,6 +1,6 @@
 const Wreck = require('@hapi/wreck')
 
-async function deleteFile(blobReference) {
+const deleteFile = async (blobReference) => {
   try {
     await Wreck.delete(`http://ffc-sfd-file-processor:3019/delete/${blobReference}`)
   } catch (err) {

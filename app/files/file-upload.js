@@ -1,7 +1,7 @@
 const Wreck = require('@hapi/wreck')
 const FormData = require('form-data')
 
-async function uploadFile(file, sanitizedFilename, scheme, collection, organisation, crn) {
+const uploadFile = async (file, sanitizedFilename, scheme, collection, organisation, crn) => {
   const form = new FormData()
   form.append('scheme', scheme)
   form.append('collection', collection)

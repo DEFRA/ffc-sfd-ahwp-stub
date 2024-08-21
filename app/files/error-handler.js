@@ -1,4 +1,4 @@
-function handleUploadError(err, sanitizedFilename) {
+const handleUploadError = (err, sanitizedFilename) => {
   let simplifiedError = ''
   if (err.message === 'Response Error: 413 Payload Too Large') {
     simplifiedError = 'Cannot exceed 10 MB'
